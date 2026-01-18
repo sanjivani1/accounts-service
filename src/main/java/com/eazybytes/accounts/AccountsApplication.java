@@ -15,9 +15,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableFeignClients
-/*@ComponentScans({ @ComponentScan("com.eazybytes.accounts.controller") })
-@EnableJpaRepositories("com.eazybytes.accounts.repository")
-@EntityScan("com.eazybytes.accounts.model")*/
 @EnableJpaAuditing(auditorAwareRef = "auditAwareImpl")
 @EnableConfigurationProperties(AccountsContactInfoDto.class)
 @OpenAPIDefinition(
@@ -43,6 +40,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class AccountsApplication {
 
 	public static void main(String[] args) {
+        System.out.println(System.getenv("OPENAI_API_KEY"));
 		SpringApplication.run(AccountsApplication.class, args);
 	}
 
